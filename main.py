@@ -68,98 +68,120 @@
 # persent = 35800 * 20 / 100
 # print(f"Цена телефона после подорожания составит: {35800+persent} рублей")
 
-#     if start > end:
-#         start, end = end, start
-#     s = 0
-#     for i in range(start, end + 1):
-#         s += i
-#     return s
-# a, b = map(int, input().split())   #ЭТА СТРОЧКА НЕ ПОНЯТНА
-# print(sum_range(a, b))
+#
+#
+# nums = [2, 11, 6, 8, 10]
+# target=6
+# def mySort(nums):
+#     for i in range(1, len(nums)):
+#         while (i > 0 and nums[i] < nums[i-1]):
+#             nums[i], nums[i-1] = nums[i-1], nums[i]
+#             i -= 1
+#     return nums
+#
+# print(mySort(nums))
+#
+# def LinearSearch(nums, target):
+#     for i in range (len(nums)):
+#         if nums[i] == 6:
+#             return i
+#     return -1
+# print( LinearSearch(nums, 6))
+#
+# numbers = [25, 13, 6, 19, 27, 31]
+# target = 15
+#
+# def mySort(numbers):
+#     for i in range(0, len(numbers)):
+#         for n in range(i+1, len(numbers)):
+#             if (numbers[n] < numbers[i]):
+#                 numbers[n], numbers[i] = numbers[i], numbers[n]
+#     return numbers
+# print(mySort(numbers))
+#
+# def binary_search(numbers, target):
+#     l = 0
+#     r = len(numbers) - 1
+#     while l<=r:
+#         m = (l+r)//2
+#         element = numbers[m]
+#         if element == target:
+#             return m
+#         elif element < target:
+#             return l == m+1
+#         else:
+#             r = l-1
+#         return -1
+# print (binary_search(numbers, 15))
+#
+# array = [11, 28, 4, 20, 9, 15]
+# target = 20
+#
+# def mySort(array):
+#     left = 1
+#     right = len(array)
+#     while left<right:
+#         for i in range(left, right):
+#             if array[i] < array[i-1]:
+#                 array[i], array[i-1] = array[i-1], array[i]
+#             if array[right-i] < array[right-i-1]:
+#                 array[right-i], array[right-i-1] = array[right-i-1], array[right-i]
+#         left += 1; right -= 1
+#     return array
+#
+# print(mySort(array))
+#
+# def ternary_search(array, target):
+#     left = 0
+#     right = len(array) - 1
+#     while left <= right:
+#         h = (right - left) // 3
+#         m1 = left + h
+#         m2 = right - h
+#         if array[m1] == target:
+#             return m1
+#         elif array[m2] == target:
+#             return m2
+#         elif array[m1] < target < array[m2]:
+#             left = m1+1
+#             right = m2-1
+#         elif target < array[m1]:
+#             right = m1-1
+#         else:
+#             l = m2+1
+#     return None
+# print (ternary_search(array, target))
+
+arr = [3,2,4]
+target = 6
+def search(arr,target):
+        for i in range(len(arr)):
+            for j in range(i + 1,len(arr)):
+                if arr[i]+arr[j] == target:
+                    return [i,j]
+print(search(arr,target))
 
 
+message = "AAAABBCAA"
+def encode_message(message):
+  encoded_string = ""
+  i = 0
+  while (i <= len(message)-1):
+    count = 1
+    ch = message[i]
+    j = i
+    while (j < len(message)-1):
+      if (message[j] == message[j + 1]):
+        count = count + 1
+        j = j + 1
+      else:
+        break
+    encoded_string = encoded_string + str(count) + ch
+    i = j + 1
+  return encoded_string
+print(encode_message(message))
 
-nums = [2, 11, 6, 8, 10]
-target=6
-def mySort(nums):
-    for i in range(1, len(nums)):
-        while (i > 0 and nums[i] < nums[i-1]):
-            nums[i], nums[i-1] = nums[i-1], nums[i]
-            i -= 1
-    return nums
 
-print(mySort(nums))
-
-def LinearSearch(nums, target):
-    for i in range (len(nums)):
-        if nums[i] == 6:
-            return i
-    return -1
-print( LinearSearch(nums, 6))
-
-numbers = [25, 13, 6, 19, 27, 31]
-target = 15
-
-def mySort(numbers):
-    for i in range(0, len(numbers)):
-        for n in range(i+1, len(numbers)):
-            if (numbers[n] < numbers[i]):
-                numbers[n], numbers[i] = numbers[i], numbers[n]
-    return numbers
-print(mySort(numbers))
-
-def binary_search(numbers, target):
-    l = 0
-    r = len(numbers) - 1
-    while l<=r:
-        m = (l+r)//2
-        element = numbers[m]
-        if element == target:
-            return m
-        elif element < target:
-            return l == m+1
-        else:
-            r = l-1
-        return -1
-print (binary_search(numbers, 15))
-
-array = [11, 28, 4, 20, 9, 15]
-target = 20
-
-def mySort(array):
-    left = 1
-    right = len(array)
-    while left<right:
-        for i in range(left, right):
-            if array[i] < array[i-1]:
-                array[i], array[i-1] = array[i-1], array[i]
-            if array[right-i] < array[right-i-1]:
-                array[right-i], array[right-i-1] = array[right-i-1], array[right-i]
-        left += 1; right -= 1
-    return array
-
-print(mySort(array))
-
-def ternary_search(array, target):
-    left = 0
-    right = len(array) - 1
-    while left <= right:
-        h = (right - left) // 3
-        m1 = left + h
-        m2 = right - h
-        if array[m1] == target:
-            return m1
-        elif array[m2] == target:
-            return m2
-        elif array[m1] < target < array[m2]:
-            left = m1+1
-            right = m2-1
-        elif target < array[m1]:
-            right = m1-1
-        else:
-            l = m2+1
-    return None
-print (ternary_search(array, target))
 
 
 
